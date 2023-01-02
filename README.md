@@ -1,5 +1,5 @@
 # Class-Continuous Conditional Generative Neural Radiance Field
-<A href = "https://tom919654.github.io/C3G_NeRF/"> target = "Project Page" </A>
+<A href = "https://tom919654.github.io/C3G_NeRF/"> "Project Page" </A>
 
 
 
