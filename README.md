@@ -4,5 +4,5 @@
 
 
 
-Our code is heavily based on official GIRAFFE code.
+Our code is heavily based on an official GIRAFFE code.
 https://github.com/autonomousvision/giraffe
