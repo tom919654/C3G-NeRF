@@ -1,0 +1,72 @@
+method: giraffe
+data:
+  dataset_name: afhq
+  path: data/afhq/*/*/*.jpg
+  classes: []
+  img_size: 256
+  celebA_center_crop: True
+  fid_file: data/afhq/fid_files/afhq_256.npz
+  random_crop: False
+  celebA_center_crop: False
+  use_tanh_range: False
+model:
+  background_generator_kwargs:
+    rgb_out_dim: 256
+  z_dim: 128
+  z_dim_bg: 64
+  decoder: linear
+  discriminator: dc_cond
+  generator: simple
+  background_generator: linear
+  bounding_box_generator: simple
+  neural_renderer: linear
+  decoder_kwargs: {hidden_size: 128}
+  discriminator_kwargs: {}
+  generator_kwargs:
+    range_v: [0.4167, 0.5]
+    fov: 10
+    n_blocks: 8
+    skips: [2, 4, 6]
+  bounding_box_generator_kwargs:
+    scale_range_min: [0.21, 0.21, 0.21]
+    scale_range_max: [0.21, 0.21, 0.21]
+    translation_range_min: [0., 0., 0.]
+    translation_range_max: [0., 0., 0.]
+    rotation_range: [0.40278, 0.59722]  
+  neural_renderer_kwargs: 
+    input_dim: 256
+    n_feat: 256
+  decoder_kwargs:
+    rgb_out_dim: 256
+  background_generator_kwargs:
+    rgb_out_dim: 256
+    hidden_size: 64
+    n_blocks: 4
+    downscale_p_by: 12
+    skips: []
+training:
+  out_dir:  out/afhq256_Linear
+  batch_size: 32
+  print_every: 10
+  checkpoint_every: 500
+  visualize_every: 500
+  validate_every: 10000
+  backup_every: 10000
+  learning_rate: 0.0003
+  learning_rate_d: 0.0001
+  model_selection_metric: fid_score
+  model_selection_mode: minimize
+  n_workers: 0
+  logfile: train.log
+  overwrite_visualization: False
+  multi_gpu: false
+  optimizer: RMSprop
+  optimizer_kwargs: {}
+  n_eval_images: 10000
+test:
+  model_file: model.pt
+  n_images: 20000
+  take_generator_average: False
+rendering:
+  render_dir: rendering
+  render_program: [ 'z_interpolation_app', 'z_interpolation_s'] #['object_translation_vertical', 'object_translation_horizontal', 'object_rotation', 'interpolate_app', 'interpolate_shape', 'interpolate_app_bg']
