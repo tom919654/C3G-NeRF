@@ -1,1 +1,1 @@
-# C3G-NeRF
+# Class-Continuous Conditional Generative Neural Radiance Field
