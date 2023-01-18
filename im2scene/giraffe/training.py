@@ -80,7 +80,7 @@ class Trainer(BaseTrainer):
             'regularizer': reg_d,
         }
 
-    def eval_step(self): # 나중에 추가
+    def eval_step(self):
         ''' Performs a validation step.
 
         Args:
@@ -97,7 +97,7 @@ class Trainer(BaseTrainer):
 
         for i in tqdm(range(n_iter)):
             with torch.no_grad():
-                x_fake.append(gen().cpu()[:, :3]) #여기서 random_u, random_v를 조작해서 다 각도 생성해줘야하나?
+                x_fake.append(gen().cpu()[:, :3])
         x_fake = torch.cat(x_fake, dim=0)
         x_fake.clamp_(0., 1.)
         mu, sigma = calculate_activation_statistics(x_fake)
