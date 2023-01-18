@@ -124,7 +124,6 @@ def get_renderer(model, cfg, device):
 
 
 def get_dataset(cfg, **kwargs):
-    #여기에 class 정보 추가해주는게 좋을것같다.
     ''' Returns a dataset instance.
 
     Args:
