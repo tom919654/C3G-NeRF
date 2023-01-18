@@ -26,7 +26,7 @@ class NeuralRenderer(nn.Module):
     def __init__(
             self, n_feat=256, input_dim=128, out_dim=3, final_actvn=True,
             min_feat=128, img_size=64, use_rgb_skip=True,
-            upsample_feat="nn", upsample_rgb="bilinear", use_norm=False, cond=False, #False였다
+            upsample_feat="nn", upsample_rgb="bilinear", use_norm=False, cond=False,
             **kwargs):
         super().__init__()
         self.final_actvn = final_actvn
