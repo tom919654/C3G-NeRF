@@ -31,8 +31,7 @@ class Renderer(object):
         self.sample_tmp = 0.65
 
         dummy_lab = [0.]*7
-        #dummy_lab[2] = dummy_lab[9] = dummy_lab[18] = dummy_lab[21] = dummy_lab[24] = dummy_lab[25] = dummy_lab[31] = dummy_lab[39] = 1.0 # 금발 여성 미소 화장
-        dummy_lab[1] = 1.0  # 남성 대머리 안경 콧수염
+        dummy_lab[1] = 1.0
         self.cond_data = torch.tensor([dummy_lab]).to(device)
 
     def set_random_seed(self):
